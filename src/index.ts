@@ -10,4 +10,6 @@ const deps = [
 
 export function run() {
     console.log("Hello World")
+    // cp templates/wdio.conf.js cwd()
+    // npm i deps --save-dev
 }
