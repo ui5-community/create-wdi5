@@ -2,6 +2,9 @@
   "name": "create-wdi5",
   "version": "0.1.0",
   "description": "a quick bootstrap for using wdi5 (wdio-ui5-service)",
+  "bin": {
+    "create-wdi5": "./bin/wdi5.js"
+  },
   "main": "bin/wdi5.js",
   "files": [
     "bin",
