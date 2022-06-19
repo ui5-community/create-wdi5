@@ -1,8 +1,23 @@
 # wdi5 quickstart
 
-`npm init wdi5` will install `wdi5` and add a config file to your current working directory.
+fast lane for adding `wdi5` for e2e tests to your UI5 application
 
-it's a minimum install for running `wdi5`
+## quickstart
+
+```js
+$> cd your/ui5/app
+$> npm init wdi5
+```
+
+## how it works
+
+the init will
+
+- install `wdi5`
+- add a config file (`wdio.conf.js`) to your current working directory
+- set an `npm` script `wdi5` to run `wdi5`
+
+note this is a _minimal_ install for running `wdi5`
 
 - locally
 - with `Chrome` as target browser
