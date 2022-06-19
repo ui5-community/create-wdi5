@@ -1,6 +1,6 @@
 {
   "name": "create-wdi5",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "a quick bootstrap for using wdi5 (wdio-ui5-service)",
   "main": "bin/wdi5.js",
   "files": [
@@ -44,5 +44,8 @@
   "lint-staged": {
     "*": "prettier --ignore-unknown --write",
     "*.ts": "eslint --cache --fix"
+  },
+  "dependencies": {
+    "colorette": "^2.0.19"
   }
 }
