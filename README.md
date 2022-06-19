@@ -1,4 +1,4 @@
-# wdi5 quickstart
+# ![wdi5 Logo](https://github.com/js-soft/wdi5/raw/main/docs/img/wdi5-logo-small.png) wdi5 quickstart
 
 fast lane for adding `wdi5` for e2e tests to your UI5 application
 
