@@ -13,9 +13,12 @@ $> npm init wdi5
 
 the init will
 
-- install `wdi5`
-- add a config file (`wdio.conf.js`) to your current working directory
-- set an `npm` script `wdi5` to run `wdi5`
+- install `wdi5` and all required WebdriverIO peer dependencies
+- add a config file (`wdio.conf.js`) to your current working directory,  
+  assuming that your tests are in `$ui5-app/webapp/test/**/*`  
+  and follow the name pattern `*.test.js`
+- set an `npm` script named "wdi5" to run `wdi5`  
+  so you can immediately do `npm run wdi5`
 
 note this is a _minimal_ install for running `wdi5`
 
