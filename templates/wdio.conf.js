@@ -63,6 +63,14 @@ exports.config = {
             maxInstances: 5,
             //
             browserName: "chrome",
+            "goog:chromeOptions": {
+                args:
+                    process.argv.indexOf("--headless") > -1
+                        ? ["--headless"]
+                        : process.argv.indexOf("--debug") > -1
+                        ? ["window-size=1440,800", "--auto-open-devtools-for-tabs"]
+                        : ["window-size=1440,800"]
+            },
             acceptInsecureCerts: true
             // If outputDir is provided WebdriverIO can capture driver session logs
             // it is possible to configure which logTypes to include/exclude.
@@ -108,7 +116,8 @@ exports.config = {
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: process.argv.indexOf("--debug") > -1 ? 1200000 : 120000,
+
     //
     // Default request retries count
     connectionRetryCount: 3,
@@ -146,7 +155,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: "bdd",
-        timeout: 60000
+        timeout: process.argv.indexOf("--debug") > -1 ? 600000 : 60000
     }
     //
     // =====
