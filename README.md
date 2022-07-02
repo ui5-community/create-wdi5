@@ -6,19 +6,22 @@ fast lane for adding `wdi5` for e2e tests to your UI5 application
 
 ```js
 $> cd your/ui5/app
+# for JavaScript projects:
 $> npm init wdi5
+# for TypeScript projects:
+$> npm init wdi5 -- --ts
 ```
 
 ## how it works
 
-the init will
+the init will…
 
-- install `wdi5` and all required WebdriverIO peer dependencies
-- add a config file (`wdio.conf.js`) to your current working directory,  
-  assuming that your tests are in `$ui5-app/webapp/test/**/*`  
-  and follow the name pattern `*.test.js`
-- set an `npm` script named "wdi5" to run `wdi5`  
-  so you can immediately do `npm run wdi5`
+| for JavaScript                                                                                                                                                                  | for TypeScript                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| install `wdi5` and all required WebdriverIO peer dependencies                                                                                                                   | (&larr; same)                                                                                                                                                                                                                                        |
+| assume that you're running the UI5 app with the `ui5-tooling` on port 8080                                                                                                      | (&larr; same)                                                                                                                                                                                                                                        |
+| - add a config file (`wdio.conf.js`) to your current working directory<br />- assume that your tests are in `$ui5-app/webapp/test/**/*` and follow the name pattern `*.test.js` | - add config files (`wdio.conf.ts`, `tsconfig.json` ) to a folder `test` in your current working directory (respecting existing content in `test`)<br />- assume that your tests are in `$ui5-app/test/**/*` and follow the name pattern `*.test.ts` |
+| set an `npm` script named "wdi5" to run `wdi5` <br/>so you can immediately do `npm run wdi5`                                                                                    | (&larr; same)                                                                                                                                                                                                                                        |
 
 note this is a _minimal_ install for running `wdi5`
 
@@ -28,6 +31,11 @@ note this is a _minimal_ install for running `wdi5`
 - `mocha` as the syntax for tests
 - `spec` as the output format of the test results
 
+The `wdi5` config is already prepared for
+
+- `--headless`: runs Chrome in headless mode (`npm run wdi5 -- --headless`)
+- `--debug`: extends test timeouts and auto-opens Chrome's developer tools pane (`npm run wdi5 -- --debug`)
+
 ## next
 
-- [ ] add TS support (`wdio.conf.ts`)
+- [ ] provide initial test file (skeleton) for JS + TS
