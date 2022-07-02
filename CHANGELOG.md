@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ui5-community/create-wdi5/compare/v0.1.1...v0.2.0) (2022-07-02)
+
+
+### Features
+
+* --debug and --headless ([da13699](https://github.com/ui5-community/create-wdi5/commit/da13699aee7a7029fd1af646a2b70df2278f0d6c))
+* support wdio/wdi5 in typescript ([c363ab0](https://github.com/ui5-community/create-wdi5/commit/c363ab0619e9826ce6a43a3ee9d62ac9afd0aa08))
+
 ### [0.1.1](https://github.com/ui5-community/create-wdi5/compare/v0.1.0...v0.1.1) (2022-06-19)
 
 
