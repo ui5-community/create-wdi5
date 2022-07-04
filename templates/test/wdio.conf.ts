@@ -33,7 +33,7 @@ export const config: wdi5Config = {
         // for all available options
         tsNodeOpts: {
             transpileOnly: true,
-            project: "test/tsconfig.json"
+            project: "./tsconfig.json"
         }
         // tsconfig-paths is only used if "tsConfigPathsOpts" are provided, if you
         // do please make sure "tsconfig-paths" is installed as dependency
@@ -57,7 +57,7 @@ export const config: wdi5Config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    specs: ["./test/**/*.test.ts"],
+    specs: ["./**/*.test.ts"],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
