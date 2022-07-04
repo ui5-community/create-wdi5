@@ -1,4 +1,4 @@
-import { gray, greenBright } from "colorette"
+import { gray, greenBright, yellowBright } from "colorette"
 import { execSync } from "child_process"
 import { copyFile, cp } from "fs/promises"
 
@@ -41,7 +41,12 @@ async function initTS() {
     execSync(`npm i ${DEV_DEPS_TS.join(" ")} --save-dev`, { stdio: "inherit" })
     console.log(greenBright("👍 done!"))
 
+    console.log(
+        yellowBright(`\n≡> if your're using eslint, please add the "test"'s tsconfig.json to its' project setting: 
+    "project": ["./tsconfig.json", "./test/tsconfig.json"]\n`)
+    )
+
     console.log(gray("≡> adding wdi5 start command to package.json..."))
-    execSync(`npm set-script wdi5 "wdio run test/wdio.conf.ts"`, { stdio: "inherit" })
+    execSync(`npm set-script wdi5 "cd test && wdio run wdio.conf.ts"`, { stdio: "inherit" })
     console.log(greenBright("👍 done!"))
 }
