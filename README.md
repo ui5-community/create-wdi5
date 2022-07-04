@@ -12,6 +12,8 @@ $> npm init wdi5
 $> npm init wdi5 -- --ts
 ```
 
+Note that specifically for the TypeScript projects, this quickstart command is suited as a complimentary tool [to `yo easy-ui5 ts-app`!](https://github.com/ui5-community/generator-ui5-ts-app)
+
 ## how it works
 
 the init will…
