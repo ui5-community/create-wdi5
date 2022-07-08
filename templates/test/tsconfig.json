@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "types": ["node", "webdriverio/async", "@wdio/mocha-framework", "expect-webdriverio"],
+    "types": [
+      "node",
+      "@openui5/ts-types-esm",
+      "webdriverio/async",
+      "@wdio/mocha-framework",
+      "expect-webdriverio",
+      "wdio-ui5-service/dist"
+    ],
     "target": "es2019"
   }
 }
