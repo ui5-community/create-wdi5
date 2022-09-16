@@ -9,6 +9,8 @@
     "openui5",
     "sapui5"
   ],
+  "homepage": "https://ui5-community.github.io/wdi5/#/installation?id=a-quickstart-with-npm-init-wdi5",
+  "repository": "github:ui5-community/create-wdi5",
   "license": "Apache-2.0",
   "author": "UI5 community",
   "main": "bin/wdi5.js",
