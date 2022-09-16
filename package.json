@@ -2,10 +2,19 @@
   "name": "create-wdi5",
   "version": "0.2.2",
   "description": "a quick bootstrap for using wdi5 (wdio-ui5-service)",
+  "keywords": [
+    "wdi5",
+    "wdio-ui5-service",
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "license": "Apache-2.0",
+  "author": "UI5 community",
+  "main": "bin/wdi5.js",
   "bin": {
     "create-wdi5": "./bin/wdi5.js"
   },
-  "main": "bin/wdi5.js",
   "files": [
     "bin",
     "dist",
@@ -19,15 +28,13 @@
     "prepare": "husky install",
     "release": "standard-version"
   },
-  "keywords": [
-    "wdi5",
-    "wdio-ui5-service",
-    "ui5",
-    "openui5",
-    "sapui5"
-  ],
-  "author": "UI5 community",
-  "license": "Apache-2.0",
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write",
+    "*.ts": "eslint --cache --fix"
+  },
+  "dependencies": {
+    "colorette": "^2.0.19"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
@@ -43,12 +50,5 @@
     "rimraf": "^3.0.2",
     "standard-version": "^9.5.0",
     "typescript": "^4.7.4"
-  },
-  "lint-staged": {
-    "*": "prettier --ignore-unknown --write",
-    "*.ts": "eslint --cache --fix"
-  },
-  "dependencies": {
-    "colorette": "^2.0.19"
   }
 }
