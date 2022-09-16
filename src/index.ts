@@ -33,8 +33,9 @@ async function initJS() {
 }
 
 async function initTS() {
-    console.log(gray('≡> copying tsconfig.json + wdio.conf.ts into "./test/"...'))
+    console.log(gray('≡> copying tsconfig.json into "./test/"...'))
     await copyFile(`${__dirname}/../templates/test/tsconfig.json`, `${process.cwd()}/test/tsconfig.json`)
+    console.log(gray('≡> copying wdio.conf.ts into "./"...'))
     await copyFile(`${__dirname}/../templates/wdio.conf.ts`, `${process.cwd()}/wdio.conf.ts`)
     console.log(greenBright("👍 done!"))
 
