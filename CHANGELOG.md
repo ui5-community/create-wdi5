@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/ui5-community/create-wdi5/compare/v0.2.2...v0.2.3) (2022-09-21)
+
+
+### Bug Fixes
+
+* Adjust Markdown Headings for Versions in CHANGELOG.md ([6224c7c](https://github.com/ui5-community/create-wdi5/commit/6224c7c7eaed55e14359c75047060723dc42fe57))
+
 ## [0.2.2](https://github.com/ui5-community/create-wdi5/compare/v0.2.1...v0.2.2) (2022-07-08)
 
 
