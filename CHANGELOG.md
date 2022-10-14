@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/ui5-community/create-wdi5/compare/v0.2.4-alpha.0...v0.2.4) (2022-10-14)
+
+
+### Bug Fixes
+
+* **ts:** npm set script is deprecated ([f8863f9](https://github.com/ui5-community/create-wdi5/commit/f8863f9dcd392531fdb262cdd2f9a751e58baeda))
+
 ### [0.2.4-alpha.0](https://github.com/ui5-community/create-wdi5/compare/v0.2.3...v0.2.4-alpha.0) (2022-10-14)
 
 
