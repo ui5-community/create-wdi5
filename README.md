@@ -7,9 +7,9 @@ fast lane for adding `wdi5` for e2e tests to your UI5 application
 ```js
 $> cd your/ui5/app
 # for JavaScript projects:
-$> npm init wdi5
+$> npm init wdi5@latest
 # for TypeScript projects:
-$> npm init wdi5 -- --ts
+$> npm init wdi5@latest -- --ts
 ```
 
 Note that specifically for the TypeScript projects, this quickstart command is suited as a complimentary tool [to `yo easy-ui5 ts-app`!](https://github.com/ui5-community/generator-ui5-ts-app)
