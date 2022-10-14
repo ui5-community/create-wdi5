@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.6](https://github.com/ui5-community/create-wdi5/compare/v0.2.5...v0.2.6) (2022-10-14)
+
+
+### Bug Fixes
+
+* **npm-script,ts:** run ts config file ([5458018](https://github.com/ui5-community/create-wdi5/commit/54580187e15f29bb5aa7f133e3bacbdbb665018d))
+
 ### [0.2.5](https://github.com/ui5-community/create-wdi5/compare/v0.2.4...v0.2.5) (2022-10-14)
 
 ### [0.2.4](https://github.com/ui5-community/create-wdi5/compare/v0.2.4-alpha.0...v0.2.4) (2022-10-14)

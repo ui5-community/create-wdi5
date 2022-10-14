@@ -1,6 +1,6 @@
 {
   "name": "create-wdi5",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "a quick bootstrap for using wdi5 (wdio-ui5-service)",
   "keywords": [
     "wdi5",
