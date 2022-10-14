@@ -15,6 +15,8 @@ const DEV_DEPS = [
 const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript"]
 
 export async function run() {
+    process.env.DEBUG && console.info("//> process.argv:")
+    process.env.DEBUG && console.info(process.argv)
     process.argv.find((arg) => arg.includes("ts")) ? await initTS() : await initJS()
 }
 
