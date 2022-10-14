@@ -30,7 +30,7 @@ async function initJS() {
     console.log(greenBright("👍 done!"))
 
     console.log(gray('≡> adding wdi5 start command ("wdi5") to package.json...'))
-    execSync(`npm set-script wdi5 "wdio run wdio.conf.js"`, { stdio: "inherit" })
+    execSync(`npm pkg set scripts.wdi5="wdio run wdio.conf.js"`, { stdio: "inherit" })
     console.log(greenBright("👍 done!"))
 }
 
