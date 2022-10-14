@@ -3,10 +3,10 @@ import { gray, greenBright, yellowBright } from "colorette"
 import { copyFile } from "fs/promises"
 
 const DEV_DEPS = [
-    "@wdio/cli",
-    "@wdio/local-runner",
-    "@wdio/mocha-framework",
-    "@wdio/spec-reporter",
+    "@wdio/cli@7",
+    "@wdio/local-runner@7",
+    "@wdio/mocha-framework@7",
+    "@wdio/spec-reporter@7",
     "wdio-chromedriver-service",
     "wdio-ui5-service",
     "chromedriver"
