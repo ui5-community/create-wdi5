@@ -28,6 +28,7 @@
     "build": "run-s -c clean compile",
     "build:watch": "tsc -w",
     "prepare": "husky install",
+    "prerelease": "npm run build",
     "release": "standard-version"
   },
   "lint-staged": {
