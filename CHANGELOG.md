@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.7](https://github.com/ui5-community/create-wdi5/compare/v0.2.6...v0.2.7) (2022-11-23)
+
+
+### Features
+
+* deprecate wdi5.url ([f915d3c](https://github.com/ui5-community/create-wdi5/commit/f915d3ce68ce4159e2eebf983af037b9f0b2dab1))
+
 ### [0.2.6](https://github.com/ui5-community/create-wdi5/compare/v0.2.5...v0.2.6) (2022-10-14)
 
 
