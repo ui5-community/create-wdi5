@@ -5,7 +5,6 @@ export const config: wdi5Config = {
         screenshotPath: "__screenshots__",
         screenshotsDisabled: false, // [optional] {boolean}, default: false; if set to true, screenshots won't be taken and not written to file system
         logLevel: "error", // [optional] error | verbose | silent, default: "error"
-        url: "index.html", // [mandatory] {string} name of your bootstrap html file. If your server autoredirects to a 'domain:port/'-like root url, use empty string ''
         skipInjectUI5OnStart: false, // [optional] {boolean}, default: false; true when UI5 is not on the start page, you need to later call <wdioUI5service>.injectUI5() manually
         waitForUI5Timeout: 15000 // [optional] {number}, default: 15000; maximum waiting time in milliseconds while checking for UI5 availability
     },
@@ -137,7 +136,7 @@ export const config: wdi5Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: "http://localhost:8080/",
+    baseUrl: "http://localhost:8080/index.html",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
