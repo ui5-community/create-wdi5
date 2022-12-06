@@ -43,9 +43,9 @@ The `wdi5` config is already prepared for
 
 You can pass the following flags to modify the quickstart of wdi5:
 
-- `--configPath ./wdi5` custom path where your config file (`wdio.conf.js`) should be created
-- `--specs ./wdi5/specs/**/*.test.js` custom path where your specs files are located (**only available in js-projects**)
-- `--baseUrl https://your.ui5.application.com` custom url to your application (**only available in js-projects**)
+- `--configPath <path to config>` custom path where your config file (`wdio.conf.js`) should be created
+- `--specs <path to specs>` custom path where your specs files are located (**only available in js-projects**)
+- `--baseUrl <application url>` custom url to your application (**only available in js-projects**)
 
 ## next
 
