@@ -9,27 +9,29 @@ const DEV_DEPS = [
     "@wdio/local-runner@7",
     "@wdio/mocha-framework@7",
     "@wdio/spec-reporter@7",
-    "wdio-chromedriver-service",
+    "wdio-chromedriver-service@7",
     "wdio-ui5-service",
     "chromedriver"
 ]
 
 const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript"]
-let root: string | undefined
+let configPath: string | undefined
+let BASE_URL = "http://localhost:8080/index.html"
+let SPECS = "./webapp/test/**/*.test.js"
 
 export async function run() {
     process.env.DEBUG && console.info("//> process.argv:")
     process.env.DEBUG && console.info(process.argv)
 
-    if (process.argv.findIndex((arg) => arg.includes("configPath"))) {
+    if (process.argv.find((arg) => arg.includes("configPath"))) {
         const index = process.argv.findIndex((arg) => arg.includes("configPath")) + 1
-        root = path.resolve(process.cwd(), process.argv[index])
-        const rootDirExists = await fs.access(root).then(
+        configPath = path.resolve(process.cwd(), process.argv[index])
+        const rootDirExists = await fs.access(configPath).then(
             () => true,
             () => false
         )
         if (!rootDirExists) {
-            await fs.mkdir(root, { recursive: true })
+            await fs.mkdir(configPath, { recursive: true })
         }
     }
 
@@ -38,7 +40,8 @@ export async function run() {
 
 async function initJS() {
     console.log(gray("≡> copying wdio.conf.js into place..."))
-    await copyFile(`${__dirname}/../templates/wdio.conf.js`, `${root ? root : process.cwd()}/wdio.conf.js`)
+    await copyFile(`${__dirname}/../templates/wdio.conf.js`, `${configPath ? configPath : process.cwd()}/wdio.conf.js`)
+    await _replacePlaceholder()
     console.log(greenBright("👍 done!"))
 
     console.log(gray("≡> installing wdio + wdi5 and adding them as dev dependencies..."))
@@ -46,15 +49,20 @@ async function initJS() {
     console.log(greenBright("👍 done!"))
 
     console.log(gray('≡> adding wdi5 start command ("wdi5") to package.json...'))
-    execSync(`npm pkg set scripts.wdi5="wdio run wdio.conf.js"`, { stdio: "inherit" })
+    execSync(`npm pkg set scripts.wdi5="wdio run ${configPath ? configPath : process.cwd()}/wdio.conf.js"`, {
+        stdio: "inherit"
+    })
     console.log(greenBright("👍 done!"))
 }
 
 async function initTS() {
     console.log(gray('≡> copying tsconfig.json into "./test/"...'))
-    await copyFile(`${__dirname}/../templates/test/tsconfig.json`, `${root ? root : process.cwd()}/test/tsconfig.json`)
+    await copyFile(
+        `${__dirname}/../templates/test/tsconfig.json`,
+        `${configPath ? configPath : process.cwd()}/test/tsconfig.json`
+    )
     console.log(gray('≡> copying wdio.conf.ts into "./"...'))
-    await copyFile(`${__dirname}/../templates/wdio.conf.ts`, `${root ? root : process.cwd()}/wdio.conf.ts`)
+    await copyFile(`${__dirname}/../templates/wdio.conf.ts`, `${configPath ? configPath : process.cwd()}/wdio.conf.ts`)
     console.log(greenBright("👍 done!"))
 
     console.log(gray("≡> installing wdio + wdi5 and adding them as dev dependencies..."))
@@ -67,6 +75,26 @@ async function initTS() {
     )
 
     console.log(gray("≡> adding wdi5 start command to package.json..."))
-    execSync(`npm pkg set scripts.wdi5="wdio run wdio.conf.ts"`, { stdio: "inherit" })
+    execSync(`npm pkg set scripts.wdi5="wdio run ${configPath ? configPath : process.cwd()}/wdio.conf.ts"`, {
+        stdio: "inherit"
+    })
     console.log(greenBright("👍 done!"))
+}
+
+async function _replacePlaceholder() {
+    if (process.argv.find((arg) => arg.includes("specs"))) {
+        const index = process.argv.findIndex((arg) => arg.includes("specs")) + 1
+        SPECS = process.argv[index]
+    }
+
+    if (process.argv.find((arg) => arg.includes("baseUrl"))) {
+        const index = process.argv.findIndex((arg) => arg.includes("baseUrl")) + 1
+        BASE_URL = process.argv[index]
+    }
+
+    const data = await fs.readFile(`${configPath ? configPath : process.cwd()}/wdio.conf.js`)
+    let fileString = data.toString()
+    fileString = fileString.replace(/%specs%/g, SPECS)
+    fileString = fileString.replace(/%baseUrl%/g, BASE_URL)
+    await fs.writeFile(`${configPath ? configPath : process.cwd()}/wdio.conf.js`, fileString)
 }
