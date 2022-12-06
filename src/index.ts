@@ -15,7 +15,8 @@ const DEV_DEPS = [
 ]
 
 const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript"]
-let configPath: string | undefined
+let configPath = "./"
+let fullConfigPath: string | undefined
 let BASE_URL = "http://localhost:8080/index.html"
 let SPECS = "./webapp/test/**/*.test.js"
 
@@ -25,13 +26,14 @@ export async function run() {
 
     if (process.argv.find((arg) => arg.includes("configPath"))) {
         const index = process.argv.findIndex((arg) => arg.includes("configPath")) + 1
-        configPath = path.resolve(process.cwd(), process.argv[index])
-        const rootDirExists = await fs.access(configPath).then(
+        configPath = process.argv[index]
+        fullConfigPath = path.resolve(process.cwd(), configPath)
+        const rootDirExists = await fs.access(fullConfigPath).then(
             () => true,
             () => false
         )
         if (!rootDirExists) {
-            await fs.mkdir(configPath, { recursive: true })
+            await fs.mkdir(fullConfigPath, { recursive: true })
         }
     }
 
@@ -39,8 +41,11 @@ export async function run() {
 }
 
 async function initJS() {
-    console.log(gray("≡> copying wdio.conf.js into place..."))
-    await copyFile(`${__dirname}/../templates/wdio.conf.js`, `${configPath ? configPath : process.cwd()}/wdio.conf.js`)
+    console.log(gray(`≡> copying wdio.conf.js into "${configPath}"`))
+    await copyFile(
+        `${__dirname}/../templates/wdio.conf.js`,
+        `${fullConfigPath ? fullConfigPath : process.cwd()}/wdio.conf.js`
+    )
     await _replacePlaceholder()
     console.log(greenBright("👍 done!"))
 
@@ -59,10 +64,13 @@ async function initTS() {
     console.log(gray('≡> copying tsconfig.json into "./test/"...'))
     await copyFile(
         `${__dirname}/../templates/test/tsconfig.json`,
-        `${configPath ? configPath : process.cwd()}/test/tsconfig.json`
+        `${fullConfigPath ? fullConfigPath : process.cwd()}/test/tsconfig.json`
     )
-    console.log(gray('≡> copying wdio.conf.ts into "./"...'))
-    await copyFile(`${__dirname}/../templates/wdio.conf.ts`, `${configPath ? configPath : process.cwd()}/wdio.conf.ts`)
+    console.log(gray(`≡> copying wdio.conf.ts into "${configPath}"`))
+    await copyFile(
+        `${__dirname}/../templates/wdio.conf.ts`,
+        `${fullConfigPath ? fullConfigPath : process.cwd()}/wdio.conf.ts`
+    )
     console.log(greenBright("👍 done!"))
 
     console.log(gray("≡> installing wdio + wdi5 and adding them as dev dependencies..."))
@@ -92,9 +100,9 @@ async function _replacePlaceholder() {
         BASE_URL = process.argv[index]
     }
 
-    const data = await fs.readFile(`${configPath ? configPath : process.cwd()}/wdio.conf.js`)
+    const data = await fs.readFile(`${fullConfigPath ? fullConfigPath : process.cwd()}/wdio.conf.js`)
     let fileString = data.toString()
     fileString = fileString.replace(/%specs%/g, SPECS)
     fileString = fileString.replace(/%baseUrl%/g, BASE_URL)
-    await fs.writeFile(`${configPath ? configPath : process.cwd()}/wdio.conf.js`, fileString)
+    await fs.writeFile(`${fullConfigPath ? fullConfigPath : process.cwd()}/wdio.conf.js`, fileString)
 }
