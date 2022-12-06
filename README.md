@@ -41,7 +41,7 @@ The `wdi5` config is already prepared for
 
 ## Supported Options
 
-You can pass the following flags to modify the quickstart of wdi5:
+You can pass the following optional flags to modify the quickstart of `wdi5`:
 
 - `--configPath <path to config>` custom path where your config file (`wdio.conf.js`) should be created
 - `--specs <path to specs>` custom path where your specs files are located (**only available in js-projects**)
