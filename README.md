@@ -43,7 +43,7 @@ The `wdi5` config is already prepared for
 
 You can pass the following optional flags to modify the quickstart of `wdi5`:
 
-- `--configPath <path to config>` custom path where your config file (`wdio.conf.js`) should be created
+`--configPath <path to config>` custom path where your config file (`wdio.conf.(j|t)s`) should be created
 - `--specs <path to specs>` custom path where your specs files are located (**only available in js-projects**)
 - `--baseUrl <application url>` custom url to your application (**only available in js-projects**)
 
