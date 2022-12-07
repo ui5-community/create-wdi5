@@ -10,6 +10,7 @@ $> cd your/ui5/app
 $> npm init wdi5@latest
 # for TypeScript projects:
 $> npm init wdi5@latest -- --ts
+
 ```
 
 Note that specifically for the TypeScript projects, this quickstart command is suited as a complimentary tool [to `yo easy-ui5 ts-app`!](https://github.com/ui5-community/generator-ui5-ts-app)
@@ -37,6 +38,14 @@ The `wdi5` config is already prepared for
 
 - `--headless`: runs Chrome in headless mode (`npm run wdi5 -- --headless`)
 - `--debug`: extends test timeouts and auto-opens Chrome's developer tools pane (`npm run wdi5 -- --debug`)
+
+## Supported Options
+
+You can pass the following _optional_ flags to modify the quickstart of `wdi5`:
+
+- `--configPath <path to config>` custom path where your config file (`wdio.conf.(j|t)s`) should be created
+- `--specs <path to specs>` custom path where your specs files are located
+- `--baseUrl <application url>` custom url to your application
 
 ## next
 

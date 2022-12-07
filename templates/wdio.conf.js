@@ -1,11 +1,15 @@
 exports.config = {
-    wdi5: {
-        screenshotPath: "webapp/test/__screenshots__",
-        screenshotsDisabled: false, // [optional] {boolean}, default: false; if set to true, screenshots won't be taken and not written to file system
-        logLevel: "error", // [optional] error | verbose | silent, default: "error"
-        skipInjectUI5OnStart: false, // [optional] {boolean}, default: false; true when UI5 is not on the start page, you need to later call <wdioUI5service>.injectUI5() manually
-        waitForUI5Timeout: 15000 // [optional] {number}, default: 15000; maximum waiting time in milliseconds while checking for UI5 availability
-    },
+    // ====================
+    // wdi5 Configuration
+    // ====================
+    //
+    // wdi5: {
+    //     screenshotPath: require("path").join("some", "dir", "for", "screenshots"),c // [optional] {string}, default: ""
+    //     screenshotsDisabled: false, // [optional] {boolean}, default: false; if set to true, screenshots won't be taken and not written to file system
+    //     logLevel: "error", // [optional] error | verbose | silent, default: "error"
+    //     skipInjectUI5OnStart: false, // [optional] {boolean}, default: false; true when UI5 is not on the start page, you need to later call <wdioUI5service>.injectUI5() manually
+    //     waitForUI5Timeout: 15000 // [optional] {number}, default: 15000; maximum waiting time in milliseconds while checking for UI5 availability
+    // },
     //
     // ====================
     // Runner Configuration
@@ -27,7 +31,7 @@ exports.config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    specs: ["./webapp/test/**/*.test.js"],
+    specs: ["%specs%"],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -108,7 +112,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: "http://localhost:8080/index.html",
+    baseUrl: "%baseUrl%",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
