@@ -61,7 +61,7 @@ async function initJS() {
 }
 
 async function initTS() {
-    console.log(gray('≡> copying tsconfig.json into "./test/"...'))
+    console.log(gray(`≡> copying tsconfig.json into ${configPath ? configPath : "./test/"}...`))
     await copyFile(
         `${__dirname}/../templates/test/tsconfig.json`,
         `${fullConfigPath ? fullConfigPath : process.cwd()}/test/tsconfig.json`
