@@ -102,7 +102,7 @@ async function initTS() {
     )
 
     console.log(gray("≡> adding wdi5 start command to package.json..."))
-    execSync(`npm pkg set scripts.wdi5="wdio run ${configPath ? configPath : process.cwd()}wdio.conf.ts"`, {
+    execSync(`npm pkg set scripts.wdi5="wdio run ${configPath}wdio.conf.ts"`, {
         stdio: "inherit"
     })
     console.log(greenBright("👍 done!"))
