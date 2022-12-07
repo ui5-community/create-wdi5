@@ -60,7 +60,7 @@ export const config: wdi5Config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    specs: ["./test/**/*.test.ts"],
+    specs: ["%specs%"],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -140,7 +140,7 @@ export const config: wdi5Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: "http://localhost:8080/index.html",
+    baseUrl: "%baseUrl%",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
