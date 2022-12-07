@@ -1,6 +1,5 @@
 import { execSync } from "child_process"
 import { gray, greenBright, yellowBright } from "colorette"
-import { copyFile } from "fs/promises"
 import path from "path"
 import fs from "fs/promises"
 
@@ -67,7 +66,7 @@ export async function run() {
 async function initJS() {
     const wdioConf = path.resolve(fullConfigPath, "wdio.conf.js")
     console.log(gray(`≡> copying wdio.conf.js into "${configPath}"`))
-    await copyFile(`${__dirname}/../templates/wdio.conf.js`, wdioConf)
+    await fs.copyFile(`${__dirname}/../templates/wdio.conf.js`, wdioConf)
     await _replacePlaceholder(wdioConf)
     console.log(greenBright("👍 done!"))
 
@@ -84,11 +83,11 @@ async function initJS() {
 
 async function initTS() {
     console.log(gray(`≡> copying tsconfig.json into "${relativeTestDir}"...`))
-    await copyFile(`${__dirname}/../templates/test/tsconfig.json`, path.resolve(absoluteTestDir, "tsconfig.json"))
+    await fs.copyFile(`${__dirname}/../templates/test/tsconfig.json`, path.resolve(absoluteTestDir, "tsconfig.json"))
 
     const wdioConf = path.resolve(fullConfigPath, "wdio.conf.ts")
     console.log(gray(`≡> copying wdio.conf.ts into "${configPath}"`))
-    await copyFile(`${__dirname}/../templates/wdio.conf.ts`, wdioConf)
+    await fs.copyFile(`${__dirname}/../templates/wdio.conf.ts`, wdioConf)
     await _replacePlaceholder(wdioConf)
     console.log(greenBright("👍 done!"))
 
