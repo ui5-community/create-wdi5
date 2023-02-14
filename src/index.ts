@@ -152,7 +152,6 @@ function _installDevDependencies(deps: string[]): void {
 
     const packageManager = _getUsedPackageManager()
     const cmd = builder[packageManager](deps.join(" "))
-
     execSync(cmd, { stdio: "inherit" })
 }
 
