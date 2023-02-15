@@ -128,7 +128,7 @@ async function _replacePlaceholder(wdioConf: string) {
 }
 
 function _getUsedPackageManager(): PackageManager {
-    const alternativeManagers = [PackageManager.pnpm, PackageManager.pnpm]
+    const alternativeManagers = [PackageManager.pnpm, PackageManager.yarn]
     const defaultManager = PackageManager.npm
 
     const { npm_config_user_agent } = process.env
