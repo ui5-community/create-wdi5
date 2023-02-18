@@ -1,23 +1,36 @@
 # ![wdi5 Logo](https://github.com/js-soft/wdi5/raw/main/docs/img/wdi5-logo-small.png) wdi5 quickstart
 
-fast lane for adding `wdi5` for e2e tests to your UI5 application
+Fast lane for adding `wdi5` for e2e tests to your UI5 application
 
-## quickstart
+## Quickstart
 
-```js
+```bash
 $> cd your/ui5/app
 # for JavaScript projects:
 $> npm init wdi5@latest
 # for TypeScript projects:
 $> npm init wdi5@latest -- --ts
+```
 
+Or, if you are working with `yarn`
+
+```bash
+$> yarn create wdi5@latest
+$> yarn create wdi5@latest -- --ts
+```
+
+Or, if you are working with `pnpm`
+
+```bash
+$> pnpm create wdi5@latest
+$> pnpm create wdi5@latest -- --ts
 ```
 
 Note that specifically for the TypeScript projects, this quickstart command is suited as a complimentary tool [to `yo easy-ui5 ts-app`!](https://github.com/ui5-community/generator-ui5-ts-app)
 
-## how it works
+## How it works
 
-the init will…
+The initializer will…
 
 | for JavaScript                                                                                                                                                                | for TypeScript                                                                                                                                                                                                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -26,7 +39,7 @@ the init will…
 | - add a config file (`wdio.conf.js`) to your current working directory<br>- assume that your tests are in `$ui5-app/webapp/test/**/*` and follow the name pattern `*.test.js` | - add a config file (`wdio.conf.ts`) to your current working directory <br> - add a config file (`tsconfig.json` ) to a folder `test` in your current working directory (respecting existing content in `test`)<br>- assume that your tests are in `$ui5-app/test/**/*` and follow the name pattern `*.test.ts` |
 | set an `npm` script named "wdi5" to run `wdi5` <br/>so you can immediately do `npm run wdi5`                                                                                  | (&larr; same)                                                                                                                                                                                                                                                                                                   |
 
-note this is a _minimal_ install for running `wdi5`
+Note that this is a _minimal_ install for running `wdi5`
 
 - locally
 - with `Chrome` as target browser
@@ -47,6 +60,6 @@ You can pass the following _optional_ flags to modify the quickstart of `wdi5`:
 - `--specs <path to specs>` custom path where your specs files are located
 - `--baseUrl <application url>` custom url to your application
 
-## next
+## Next
 
 - [ ] provide initial test file (skeleton) for JS + TS
