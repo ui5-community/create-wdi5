@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/ui5-community/create-wdi5/compare/v0.3.0...v0.4.0) (2023-02-18)
+
+
+### Features
+
+* support alternative package managers (yarn/pnpm) ([#6](https://github.com/ui5-community/create-wdi5/issues/6)) ([55cecb2](https://github.com/ui5-community/create-wdi5/commit/55cecb27d3cf9dd2f91163d09fecd0ec1d4c5d42))
+
 ## [0.3.0](https://github.com/ui5-community/create-wdi5/compare/v0.2.7...v0.3.0) (2022-12-07)
 
 ### [0.2.7](https://github.com/ui5-community/create-wdi5/compare/v0.2.6...v0.2.7) (2022-11-23)
