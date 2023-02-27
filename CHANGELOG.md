@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/ui5-community/create-wdi5/compare/v0.4.0...v0.4.1) (2023-02-27)
+
+
+### Bug Fixes
+
+* **ts:** add ui5 types ([6769515](https://github.com/ui5-community/create-wdi5/commit/6769515db269eb1204b5fbea61c471b2b4a359c6))
+
 ## [0.4.0](https://github.com/ui5-community/create-wdi5/compare/v0.3.0...v0.4.0) (2023-02-18)
 
 
