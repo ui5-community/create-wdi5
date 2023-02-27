@@ -19,7 +19,7 @@ const DEV_DEPS = [
     "chromedriver"
 ]
 
-const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript"]
+const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript", "@openui5/ts-types-esm"]
 let configPath = "./"
 let fullConfigPath: string
 let BASE_URL = "http://localhost:8080/index.html"
