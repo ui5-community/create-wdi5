@@ -105,7 +105,7 @@ async function initTS() {
     )
 
     console.log(gray("≡> adding wdi5 start command to package.json..."))
-    _addWdi5Script(`${configPath}wdio.conf.ts`)
+    _addWdi5Script(`${configPath}wdio.conf.ts`, true)
     console.log(greenBright("👍 done!"))
 }
 
@@ -155,16 +155,20 @@ function _installDevDependencies(deps: string[]): void {
     execSync(cmd, { stdio: "inherit" })
 }
 
-function _addWdi5Script(fileName: string): void {
+function _addWdi5Script(fileName: string, ts: boolean = false): string {
     const builder = {
-        npm: (f: string) => `npm pkg set scripts.wdi5="wdio run ${f}"`,
+        npm: (f: string) => `npm pkg set scripts.wdi5="wdio run ${f}${ts ? appendTsNodeOpts() : ""}"`,
         // pnpm doesn't support the pgk command. we have to rely on a remote package to add scripts to package.json
-        pnpm: (f: string) => `pnpx npm-add-script -k wdi5 -v "wdio run ${f}"`,
+        pnpm: (f: string) => `pnpx npm-add-script -k wdi5 -v "wdio run ${f}${ts ? appendTsNodeOpts() : ""}"`,
         // yarn doesn't support pgk and has no npx equivalent. npx requires confirmation with "y"
-        yarn: (f: string) => `echo y | npx npm-add-script -k wdi5 -v "wdio run ${f}"`
+        yarn: (f: string) => `echo y | npx npm-add-script -k wdi5 -v "wdio run ${f}${ts ? appendTsNodeOpts() : ""}"`
     }
 
     const packageManager = _getUsedPackageManager()
     const cmd = builder[packageManager](fileName)
     execSync(cmd, { stdio: "inherit" })
+}
+
+function appendTsNodeOpts() {
+    return ` --autoCompileOpts.tsNodeOpts.project=test/tsconfig.json`
 }
