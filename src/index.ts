@@ -155,7 +155,7 @@ function _installDevDependencies(deps: string[]): void {
     execSync(cmd, { stdio: "inherit" })
 }
 
-function _addWdi5Script(fileName: string, ts: boolean = false): string {
+function _addWdi5Script(fileName: string, ts: boolean = false): void {
     const builder = {
         npm: (f: string) => `npm pkg set scripts.wdi5="wdio run ${f}${ts ? appendTsNodeOpts() : ""}"`,
         // pnpm doesn't support the pgk command. we have to rely on a remote package to add scripts to package.json
