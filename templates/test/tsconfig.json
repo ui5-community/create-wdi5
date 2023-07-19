@@ -3,7 +3,7 @@
     "moduleResolution": "node",
     "types": [
       "node",
-      "@openui5/ts-types-esm",
+      "@openui5/ts-types",
       "webdriverio/async",
       "@wdio/mocha-framework",
       "expect-webdriverio",
