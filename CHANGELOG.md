@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/ui5-community/create-wdi5/compare/v0.4.1...v0.4.2) (2023-07-19)
+
+
+### Bug Fixes
+
+* return type ([42f5f08](https://github.com/ui5-community/create-wdi5/commit/42f5f08da042b4b9071641087229839b7202f64f))
+* **ts:** test-specific tsconfig for wdio ([#8](https://github.com/ui5-community/create-wdi5/issues/8)) ([100c6ff](https://github.com/ui5-community/create-wdi5/commit/100c6ffb0bafea15dd4fb815152c3f3ebcad5b80))
+
 ### [0.4.1](https://github.com/ui5-community/create-wdi5/compare/v0.4.0...v0.4.1) (2023-02-27)
 
 
