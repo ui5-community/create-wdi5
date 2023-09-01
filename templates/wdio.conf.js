@@ -9,6 +9,7 @@ exports.config = {
     //     logLevel: "error", // [optional] error | verbose | silent, default: "error"
     //     skipInjectUI5OnStart: false, // [optional] {boolean}, default: false; true when UI5 is not on the start page, you need to later call <wdioUI5service>.injectUI5() manually
     //     waitForUI5Timeout: 15000 // [optional] {number}, default: 15000; maximum waiting time in milliseconds while checking for UI5 availability
+    //     btpWorkZoneEnablement: false // [optional] {boolean}, default: false; whether to instruct wdi5 to inject itself in both the SAP Build Workzone, standard edition, shell and app
     // },
     //
     // ====================
@@ -129,7 +130,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ["chromedriver", "ui5"],
+    services: ["ui5"],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
