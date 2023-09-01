@@ -26,7 +26,7 @@ $> pnpm create wdi5@latest
 $> pnpm create wdi5@latest -- --ts
 ```
 
-Note that specifically for the TypeScript projects, this quickstart command is suited as a complimentary tool [to `yo easy-ui5 ts-app`!](https://github.com/ui5-community/generator-ui5-ts-app)
+Note that this quickstart command is suited as a complimentary tool [to `yo easy-ui5`!](https://github.com/SAP/generator-easy-ui5)
 
 ## How it works
 
