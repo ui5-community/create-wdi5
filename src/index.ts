@@ -10,16 +10,14 @@ enum PackageManager {
 }
 
 const DEV_DEPS = [
-    "@wdio/cli@7",
-    "@wdio/local-runner@7",
-    "@wdio/mocha-framework@7",
-    "@wdio/spec-reporter@7",
-    "wdio-chromedriver-service@7",
-    "wdio-ui5-service",
-    "chromedriver"
+    "@wdio/cli",
+    "@wdio/local-runner",
+    "@wdio/mocha-framework",
+    "@wdio/spec-reporter",
+    "wdio-ui5-service@2.0.0-beta.1"
 ]
 
-const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript", "@openui5/ts-types-esm"]
+const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript", "@openui5/types"]
 let configPath = "./"
 let fullConfigPath: string
 let BASE_URL = "http://localhost:8080/index.html"
@@ -50,7 +48,7 @@ export async function run() {
         await fs.mkdir(fullConfigPath, { recursive: true })
     }
 
-    relativeTestDir = ts ? "./test" : "./webapp/test"
+    relativeTestDir = ts ? "./webapp/test/e2e" : "./webapp/test/e2e"
     absoluteTestDir = path.resolve(process.cwd(), relativeTestDir)
     const testDirExists = await fs.access(absoluteTestDir).then(
         () => true,
@@ -61,10 +59,10 @@ export async function run() {
     }
 
     if (ts) {
-        SPECS = "./test/**/*.test.ts"
+        SPECS = "./webapp/test/e2e/**/*.test.ts"
         await initTS()
     } else {
-        SPECS = "./webapp/test/**/*.test.js"
+        SPECS = "./webapp/test/e2e/**/*.test.js"
         await initJS()
     }
 }
