@@ -18,7 +18,7 @@ const DEV_DEPS = [
 ]
 
 const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript", "@openui5/types"]
-let configPath = "./"
+let configPath = "./webapp/test/e2e/"
 let fullConfigPath: string
 let BASE_URL = "http://localhost:8080/index.html"
 let SPECS: string
@@ -59,10 +59,10 @@ export async function run() {
     }
 
     if (ts) {
-        SPECS = "./webapp/test/e2e/**/*.test.ts"
+        SPECS = "./**/*.test.ts"
         await initTS()
     } else {
-        SPECS = "./webapp/test/e2e/**/*.test.js"
+        SPECS = "./**/*.test.js"
         await initJS()
     }
 }
@@ -72,6 +72,10 @@ async function initJS() {
     console.log(gray(`≡> copying wdio.conf.js into "${configPath}"`))
     await fs.copyFile(`${__dirname}/../templates/wdio.conf.js`, wdioConf)
     await _replacePlaceholder(wdioConf)
+    console.log(greenBright("👍 done!"))
+
+    console.log(gray(`≡> copying sample test files into "${relativeTestDir}"...`))
+    await copySamples()
     console.log(greenBright("👍 done!"))
 
     console.log(gray("≡> installing wdio + wdi5 and adding them as dev dependencies..."))
@@ -93,6 +97,10 @@ async function initTS() {
     await _replacePlaceholder(wdioConf)
     console.log(greenBright("👍 done!"))
 
+    console.log(gray(`≡> copying sample test files into "${relativeTestDir}"...`))
+    await copySamples(true) //> "true" indicating TS land
+    console.log(greenBright("👍 done!"))
+
     console.log(gray("≡> installing wdio + wdi5 and adding them as dev dependencies..."))
     _installDevDependencies(DEV_DEPS_TS)
     console.log(greenBright("👍 done!"))
@@ -105,6 +113,13 @@ async function initTS() {
     console.log(gray("≡> adding wdi5 start command to package.json..."))
     _addWdi5Script(`${configPath}wdio.conf.ts`, true)
     console.log(greenBright("👍 done!"))
+}
+
+async function copySamples(ts = false) {
+    await fs.copyFile(
+        `${__dirname}/../templates/test/sample.test.${ts ? "ts" : "js"}`,
+        path.resolve(absoluteTestDir, `sample.test.${ts ? "ts" : "js"}`)
+    )
 }
 
 async function _replacePlaceholder(wdioConf: string) {
@@ -168,5 +183,6 @@ function _addWdi5Script(fileName: string, ts: boolean = false): void {
 }
 
 function appendTsNodeOpts() {
-    return ` --autoCompileOpts.tsNodeOpts.project=test/tsconfig.json`
+    return ""
+    // return ` --autoCompileOpts.tsNodeOpts.project=test/tsconfig.json`
 }
