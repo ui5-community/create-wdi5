@@ -14,7 +14,7 @@ const DEV_DEPS = [
     "@wdio/local-runner",
     "@wdio/mocha-framework",
     "@wdio/spec-reporter",
-    "wdio-ui5-service@2.0.0-beta.1"
+    "wdio-ui5-service@2"
 ]
 
 const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript", "@openui5/types"]
