@@ -22,7 +22,7 @@ let configPath = "./webapp/test/e2e/"
 let fullConfigPath: string
 let BASE_URL = "http://localhost:8080/index.html"
 let SPECS: string
-let relativeTestDir: string
+let relativeTestDir = "./webapp/test/e2e/"
 let absoluteTestDir: string
 let ts = false // whether we're working in TS land
 
@@ -32,6 +32,7 @@ export async function run() {
 
     ts = process.argv.find((arg) => arg.includes("ts")) ? true : false
 
+    // respect --configPath cmd line arg
     if (process.argv.find((arg) => arg.includes("configPath"))) {
         const index = process.argv.findIndex((arg) => arg.includes("configPath")) + 1
         configPath = process.argv[index]
@@ -48,7 +49,13 @@ export async function run() {
         await fs.mkdir(fullConfigPath, { recursive: true })
     }
 
-    relativeTestDir = ts ? "./webapp/test/e2e" : "./webapp/test/e2e"
+    // respect --specs cmd line arg
+    if (process.argv.find((arg) => arg.includes("specs"))) {
+        const index = process.argv.findIndex((arg) => arg.includes("specs")) + 1
+        relativeTestDir = process.argv[index]
+        relativeTestDir = relativeTestDir.endsWith(path.sep) ? relativeTestDir : relativeTestDir + path.sep
+    }
+
     absoluteTestDir = path.resolve(process.cwd(), relativeTestDir)
     const testDirExists = await fs.access(absoluteTestDir).then(
         () => true,
