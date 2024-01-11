@@ -114,7 +114,7 @@ async function initTS() {
 
     console.log(
         yellowBright(`\n≡> if your're using eslint, please add the "test"'s tsconfig.json to its' project setting:
-    "project": ["./tsconfig.json", "${relativeTestDir}/tsconfig.json"]\n`)
+    "project": ["./tsconfig.json", "${relativeTestDir}tsconfig.json"]\n`)
     )
 
     console.log(gray("≡> adding wdi5 start command to package.json..."))
