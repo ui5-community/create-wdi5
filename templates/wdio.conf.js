@@ -70,10 +70,10 @@ exports.config = {
             "goog:chromeOptions": {
                 args:
                     process.argv.indexOf("--headless") > -1
-                        ? ["--headless=new"]
+                        ? ["--headless=new", "--disable-search-engine-choice-screen"]
                         : process.argv.indexOf("--debug") > -1
-                        ? ["window-size=1440,800", "--auto-open-devtools-for-tabs"]
-                        : ["window-size=1440,800"]
+                        ? ["window-size=1440,800", "--auto-open-devtools-for-tabs", "--disable-search-engine-choice-screen"]
+                        : ["window-size=1440,800", "--disable-search-engine-choice-screen"]
             },
             acceptInsecureCerts: true
             // If outputDir is provided WebdriverIO can capture driver session logs
