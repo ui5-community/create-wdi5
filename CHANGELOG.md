@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.5](https://github.com/ui5-community/create-wdi5/compare/v2.0.4...v2.0.5) (2024-11-03)
+
+
+### Bug Fixes
+
+* add `disable-search-engine-choice-screen` ([#15](https://github.com/ui5-community/create-wdi5/issues/15)) ([0a5a501](https://github.com/ui5-community/create-wdi5/commit/0a5a501dc67ffade48e36597d08b617081dac2f3))
+
 ### [2.0.4](https://github.com/ui5-community/create-wdi5/compare/v2.0.3...v2.0.4) (2024-06-01)
 
 ### [2.0.3](https://github.com/ui5-community/create-wdi5/compare/v2.0.2...v2.0.3) (2024-01-11)
