@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { execSync } from "child_process"
 import { gray, greenBright, yellowBright } from "colorette"
 import path from "path"
@@ -14,7 +15,7 @@ const DEV_DEPS = [
     "@wdio/local-runner",
     "@wdio/mocha-framework",
     "@wdio/spec-reporter",
-    "wdio-ui5-service@2"
+    "wdio-ui5-service@3"
 ]
 
 const DEV_DEPS_TS = [...DEV_DEPS, "ts-node", "typescript", "@openui5/types"]
